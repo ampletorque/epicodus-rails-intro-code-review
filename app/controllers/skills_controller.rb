@@ -22,6 +22,29 @@ class SkillsController < ApplicationController
     end
   end
 
+  def edit
+    @user = User.find(params[:user_id])
+    @skill = Skill.find(params[:id])
+    render :edit
+  end
+
+  def update
+    @user= User.find(params[:user_id])
+    @skill = Skill.find(params[:id])
+    if @skill.update(skill_params)
+      redirect_to user_path(@skill.user)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @user = User.find(params[:user_id])
+    @skill = Skill.find(params[:id])
+    @skill.destroy
+    redirect_to user_path(@skill.user)
+  end
+
 private
   def skill_params
     params.require(:skill).permit(:name, :description, :category)

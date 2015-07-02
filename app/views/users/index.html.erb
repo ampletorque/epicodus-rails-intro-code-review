@@ -1,5 +1,6 @@
-<h1>Users</h1>
+<h1>Coder Portfolios</h1>
 
+<h4>Show or Edit a Coder</h4>
 <ul>
   <% @users.each do |user| %>
     <li><%= link_to user.name, user_path(user) %>:
@@ -8,4 +9,6 @@
                                    :method => "delete"} %>
     </li>
   <% end %>
+
 </ul>
+<p><%= link_to "Add a new coder", new_user_path %></p>

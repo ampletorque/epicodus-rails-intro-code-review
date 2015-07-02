@@ -21,6 +21,29 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def edit
+    @user = User.find(params[:user_id])
+    @project = Project.find(params[:id])
+    render :edit
+  end
+
+  def update
+    @user= User.find(params[:user_id])
+    @project = Project.find(params[:id])
+    if @project.update(project_params)
+      redirect_to user_path(@project.user)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @user = User.find(params[:user_id])
+    @project = Project.find(params[:id])
+    @project.destroy
+    redirect_to user_path(@project.user)
+  end
+
 private
   def project_params
     params.require(:project).permit(:name, :short_description, :long_description, :category, :coworkers, :code_url, :hosted_url, :project_date)
