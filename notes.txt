@@ -1,0 +1,52 @@
+todo:
+  important:
+    link/show links between skills & projects
+    add edit/delete to skills/projects
+  secondary:
+    figure out project/skill only attached to specific user
+    limit what you can see/do by role
+  tertiary:
+    add photo to users
+  quaternary:
+    serialize best projects http://amberonrails.com/storing-arrays-in-a-database-field-w-rails-activerecord/
+    serialize coworkers
+    
+schema:
+  skills
+    has_many projects
+    category
+      front-end
+      back-end
+    name
+    description
+  projects
+    has_many skills
+    name
+    git url
+    hosted url
+    short description
+    long description
+    other people working with
+    date
+    type
+      student project
+      personal project
+      professional project
+  users
+    name
+    role
+    phone
+    email
+    github
+    finished sites
+    linkedin
+roles:
+  unknown
+    login
+  administrator
+    add/edit/delete skills
+    add/edit/delete projects
+  visitor
+    see personal description and skills and projects links
+    see lists of skills and projects
+    see information pages for projects and skills with links to the other

@@ -1,0 +1,33 @@
+<h1>Name: <%= @project.name %></h1>
+<h4>Description: <%= @project.short_description %></h4>
+<h4>More: <%= @project.long_description %></h4>
+<h4>Category: <%= @project.category %></h4>
+<h4>Coworkers: <%= @project.coworkers %></h4>
+<h4>Code url: <%= @project.code_url %></h4>
+<h4>Hosted url: <%= @project.hosted_url %></h4>
+<h4>Project date: <%= @project.project_date %></h4>
+
+<% if @project.skills.any? %>
+  <h4>Here are the skills for this project:</h4>
+
+  <ul>
+    <% @project.skills.each do |skill| %>
+      <li>
+        <%= skill.name %> | <%= skill.description %> |
+        <%= link_to "Show", user_skill_path(@project, skill) %> |
+        <%= link_to "Edit", edit_user_skill_path(@project, skill) %> |
+        <%= link_to "Delete", user_skill_path(@project, skill),
+                                 :data => {:confirm => "Are you sure?",
+                                                :method => "delete"} %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>This project has no skills yet!</p>
+<% end %>
+
+<%= link_to "Edit", edit_user_project_path(@user, @project) %> |
+<%= link_to "Delete", user_project_path(@user, @project),
+                         :data => {:confirm => "Are you sure?",
+                                        :method => "delete"} %>
+<%= link_to "Return to user", user_path(@user) %>
