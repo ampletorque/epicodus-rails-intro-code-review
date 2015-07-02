@@ -1,7 +1,7 @@
 Portfolio in Rails
 ==================
 
-For Epicodus Code Review: Friday, 2 July, 2015
+For Epicodus Code Review: Thursday, 2 July, 2015
 -----------------------------------------------
 
 Description:

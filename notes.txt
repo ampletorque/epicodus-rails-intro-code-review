@@ -1,7 +1,9 @@
 todo:
   important:
     link/show links between skills & projects
-    add edit/delete to skills/projects
+    Does the user see a flash message after successful form submissions?
+    test coverage - unit and integration
+    Does the app use the asset pipeline for Bootstrap/CSS?
   secondary:
     figure out project/skill only attached to specific user
     limit what you can see/do by role
@@ -10,7 +12,7 @@ todo:
   quaternary:
     serialize best projects http://amberonrails.com/storing-arrays-in-a-database-field-w-rails-activerecord/
     serialize coworkers
-    
+
 schema:
   skills
     has_many projects

@@ -3,7 +3,6 @@ class ProjectsController < ApplicationController
   def show
     @user = User.find(params[:user_id])
     @project = Project.find(params[:id])
-    render :show
   end
 
   def new
@@ -15,6 +14,7 @@ class ProjectsController < ApplicationController
     @user = User.find(params[:user_id])
     @project = @user.projects.new(project_params)
     if @project.save
+      flash[:notice] = "Project added."
       redirect_to user_path(@project.user)
     else
       render :new
@@ -24,13 +24,13 @@ class ProjectsController < ApplicationController
   def edit
     @user = User.find(params[:user_id])
     @project = Project.find(params[:id])
-    render :edit
   end
 
   def update
     @user= User.find(params[:user_id])
     @project = Project.find(params[:id])
     if @project.update(project_params)
+      flash[:notice] = "Project updated."
       redirect_to user_path(@project.user)
     else
       render :edit
