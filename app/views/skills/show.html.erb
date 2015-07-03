@@ -25,10 +25,7 @@
 
 <p>Add a project:</p>
 
-<%= form_for [@skill, @projects] do |f| %>
-  <%= f.collection_select(:project_id, Projects.all, :id, :name) %>
-  <%= f.submit "Add" %>
-<% end %>
+
 
 <%= link_to "Edit", edit_user_skill_path(@user, @skill) %> |
 <%= link_to "Delete", user_skill_path(@user, @skill),
