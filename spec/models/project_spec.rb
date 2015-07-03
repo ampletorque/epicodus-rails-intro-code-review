@@ -9,10 +9,7 @@ describe Project do
   it { should validate_presence_of :code_url }
   it { should validate_presence_of :hosted_url }
   it { should validate_presence_of :project_date }
-  it { should validate_presence_of :skill_id }
-  it { should validate_presence_of :user_id }
   it { should belong_to :user }
-  it { should belong_to :skill }
-  it { should have_many :skills }
+  it { should have_and_belong_to_many :skills }
 
 end

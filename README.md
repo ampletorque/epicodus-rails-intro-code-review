@@ -41,4 +41,5 @@ None so far.
 
 Notes:
 ------
-None so far.
+I decided to make an intentionally more complex database schema, with a many-to-many relationship betweeen skills and projects. Though I have this working on the model, I was not able to get the automatically-populated-by-model select-boxes to work I tried for awhile to link the one to the other. This means it isn't working completely.
+Also, I haven't finished writing complete integration spec coverage.
